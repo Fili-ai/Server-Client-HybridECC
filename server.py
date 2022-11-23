@@ -1,6 +1,7 @@
 import asyncio
 import tinyec
 from aioconsole import ainput
+import sys
 
 import commonFunctions as cf
 import EccRsa as c
@@ -217,22 +218,18 @@ class Server:
         print("Shutting down server!")
         self.loop.stop()
 
-'''
+
 # Per gestire in modo dinamico l'ip e la porta del server
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         sys.exit(f"Usage: {sys.argv[0]} HOST_IP PORT")
- 
-    loop = asyncio.get_event_loop()
-    server = Server(sys.argv[1], sys.argv[2], loop)
-'''
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 curve, privkey, pubkey = c.keysCreation()
 delimit = '\0'
-#server = Server("192.168.1.11", 4646, loop, privKey = privkey, pubKey= pubkey, Curve=curve)
-server = Server("127.0.0.1", 4646, loop, privKey = privkey, pubKey= pubkey, Curve=curve)
+
+server = Server(sys.argv[1], sys.argv[2], loop, privKey = privkey, pubKey= pubkey, Curve=curve)
 
 server.start_server()
 

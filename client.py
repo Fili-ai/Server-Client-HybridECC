@@ -19,7 +19,6 @@ class Client:
         self.__reader: asyncio.StreamReader = None
         self.__writer: asyncio.StreamWriter = None
 
-
     @property
     def server_ip(self):
         return self.__server_ip
@@ -120,7 +119,8 @@ class Client:
     async def exchange_key(self):
         '''
         Function to exchange the PubKey and the private Key
-        '''       
+        '''      
+
         data = str(str(self.pubKey.x) + delimit + str(self.pubKey.y))
         self.writer.write(data.encode())
 
@@ -185,18 +185,17 @@ class Client:
         print("Connection Closed")
         self.loop.stop()
 
-'''
+
+
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         sys.exit(f"Usage: {sys.argv[0]} SERVER_IP PORT")
-'''
 
 curve, privkey, pubkey = c.keysCreation()
 delimit = '\0'
-
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
-#client = Client("192.168.1.11", 4646, loop, privKey = privkey, pubKey = pubkey, Curve = curve)
-client = Client("127.0.0.1", 4646, loop, privKey = privkey, pubKey = pubkey, Curve = curve)
+
+client = Client(sys.argv[1], sys.argv[2], loop, privKey = privkey, pubKey = pubkey, Curve = curve)
 
 asyncio.run(client.connect_to_server())
