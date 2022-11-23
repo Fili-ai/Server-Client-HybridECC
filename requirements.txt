@@ -1,0 +1,8 @@
+aioconsole==0.5.1
+asyncio==3.4.3
+evdev==1.6.0
+pycryptodome==3.15.0
+python-xlib==0.31
+six==1.16.0
+sockets==1.0.0
+tinyec==0.4.0
