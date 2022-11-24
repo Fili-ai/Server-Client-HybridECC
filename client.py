@@ -124,7 +124,7 @@ class Client:
         data = str(str(self.pubKey.x) + delimit + str(self.pubKey.y))
         self.writer.write(data.encode())
 
-        dataRec = str((await self.reader.read(255)).decode())
+        dataRec = str((await self.reader.read(1024)).decode())
         value = cf.pubKeyReconstruction(dataRec, curve)
         self.set_puKey_server(value)
 

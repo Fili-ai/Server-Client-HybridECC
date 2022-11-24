@@ -45,5 +45,4 @@ def decrypt_messages(Curve: tinyec.ec.Curve, privKey: int, dataRec: list) -> str
         return plaintext.decode('UTF-8')
     except Exception as e:
         print(f"Error during decrypting: {e}")
-        print(f"DataRec: {dataRec}")
         return("Failed to decrypt")

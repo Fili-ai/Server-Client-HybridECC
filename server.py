@@ -131,7 +131,7 @@ class Server:
         # loop to continue read the stream of the client
         while True:
             # await messages from client
-            raw_client_message = await client_reader.read(255)
+            raw_client_message = await client_reader.read(1024)
             client_message = cf.decrypt_messages(Curve= self.Curve, privKey= self.privKey, dataRec=raw_client_message.decode('utf-8').split(delimit))
             
             # custom behaviour of the server when received a trigger message
