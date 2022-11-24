@@ -15,6 +15,7 @@ In this section I'm going to mention the main sources on which my work is based:
 - Encryption/decryption/ECC
   - <https://github.com/nakov/Practical-Cryptography-for-Developers-Book/blob/master/asymmetric-key-ciphers/ecc-encryption-decryption.md>;
   - <https://wizardforcel.gitbooks.io/practical-cryptography-for-developers-book/content/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html>;
+  - <https://malware.news/t/everyone-loves-curves-but-which-elliptic-curve-is-the-most-popular/17657>
 - Asyncio
   - <https://testingonprod.com/2021/10/10/asynchronous-server-client-with-python-0x01-starting-our-server/>
   - <https://realpython.com/async-io-python/>

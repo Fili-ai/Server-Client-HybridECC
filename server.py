@@ -219,7 +219,6 @@ class Server:
         self.loop.stop()
 
 
-# Per gestire in modo dinamico l'ip e la porta del server
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         sys.exit(f"Usage: {sys.argv[0]} HOST_IP PORT")
